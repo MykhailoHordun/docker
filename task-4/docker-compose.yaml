@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx: 
+    image: nginx
+  lite-server:
+    image: gecko8/lite-server  
+    volumes:
+      - ./app:/src  
+    
+  json-server:
+    image: clue/json-server
+    volumes:
+      - ./data:/data
+
+# docker-compose up --scale lite-server=3 --scale json-server=3
+    

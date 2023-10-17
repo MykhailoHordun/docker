@@ -1,0 +1,7 @@
+{
+  "posts": [
+    { "id": 1, "title": "Hello, Docker!" },
+    { "id": 2, "title": "Using JSON-server" },
+    { "id": 3, "title": "Task 4"}
+  ]
+}
