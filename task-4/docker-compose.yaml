@@ -4,11 +4,14 @@ services:
     image: nginx
   lite-server:
     image: gecko8/lite-server  
+    ports:
+      - 3000
     volumes:
-      - ./app:/src  
-    
+      - ./app:/src      
   json-server:
     image: clue/json-server
+    ports:
+      - 80
     volumes:
       - ./data:/data
 
