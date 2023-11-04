@@ -1,11 +1,21 @@
 version: '3'
 services:
-  node:
-    image: node
-    
-  lite-server:
-    image: gecko8/lite-server
-    ports:
-      - "3000:3000"
+  web:
+    image: node:latest
+    working_dir: /app
     volumes:
-      - ./app:/src  
+      - ./app:/app
+    ports:
+      - "8080:8080"
+    command: npm start
+    depends_on:
+      - npm
+
+  npm:
+    image: node:latest
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: bash -c "npm install && npm install lite-server --save-dev"
+
+
