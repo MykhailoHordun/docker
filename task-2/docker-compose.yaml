@@ -3,19 +3,10 @@ services:
   web:
     image: node:latest
     working_dir: /app
-    volumes:
-      - ./app:/app
     ports:
       - "8080:8080"
-    command: npm start
-    depends_on:
-      - npm
-
-  npm:
-    image: node:latest
-    working_dir: /app
     volumes:
-      - ./app:/app
-    command: bash -c "npm install && npm install lite-server --save-dev"
-
+      - ./app:/app/static
+      - ./bs-config.json:/app/bs-config.json
+    command: sh -c "npm install -g lite-server && lite-server --config bs-config.json --no-open"
 
